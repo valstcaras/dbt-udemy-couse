@@ -33,6 +33,7 @@ models:
           data_tests:
             - positive_values
   - name: dim_hosts_cleansed
+    description: This table contains the cleansed hosts data from Airbnb.
     config:
      contract:
        enforced: true 
@@ -41,6 +42,7 @@ models:
         columns: [host_id]
     columns:
         - name: host_id
+          description: The unique identifier for each host.
           data_type: integer
           constraints:
             - type: not_null
@@ -48,19 +50,39 @@ models:
             - not_null
             - unique
         - name: host_name
+          description: The name of the host.
           constraints:
             - type: not_null
           data_type: string
           data_tests:
             - not_null
         - name: is_superhost
+          description: Indicates whether the host is a superhost (t for true, f for false).
           data_type: string
           data_tests:
             - accepted_values:
                  arguments:
                    values: ['t', 'f']
         - name: updated_at
+          description: The timestamp when the host's information was last updated.
           data_type: timestamp
         - name: created_at
+          description: The timestamp when the host's information was created.
           data_type: timestamp
-
+  - name: dim_listings_w_hosts
+    data_tests:
+        - dbt_expectations.expect_table_row_count_to_equal_other_table:
+            compare_model: source('airbnb', 'listings')
+    columns:
+        - name: price
+          data_tests:
+            - dbt_expectations.expect_column_quantile_values_to_be_between:
+                quantile: .99
+                min_value: 50
+                max_value: 500
+            - dbt_expectations.expect_column_max_to_be_between:
+                max_value: 5000
+                config:
+                  severity: warn
+            - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: number 

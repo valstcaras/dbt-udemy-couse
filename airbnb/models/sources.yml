@@ -7,6 +7,15 @@ sources:
       - name: listings
         description: "This table contains information about Airbnb listings."
         identifier: raw_listings
+        columns:
+         - name: room_type
+           data_tests:
+             - dbt_expectations.expect_column_distinct_count_to_equal:
+                 value: 4
+         - name: price
+           data_tests:
+             - dbt_expectations.expect_column_values_to_match_regex:
+                 regex: "^\\\\$[0-9][0-9\\\\.]+$"
       - name: reviews
         description: "This table contains reviews for Airbnb listings."
         identifier: raw_reviews
