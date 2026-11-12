@@ -6,7 +6,7 @@ def is_holiday(date):
     return is_holiday
 
 def model(dbt, session):
-    dbt.config(materialized="table", packages=["holidays"])
+    dbt.config(materialized="table", packages=["holidays"], enabled=False) # way to disable the model
 
     orders_df = dbt.ref("seed_full_moon_dates")
     df = orders_df.to_pandas()

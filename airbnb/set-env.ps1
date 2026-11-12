@@ -1,0 +1,15 @@
+# Dot-source this file before running dbt:
+#   . .\set-env.ps1
+# or . ..\set-env.ps1 if you're running the script from airbnb/ folder
+# !! Do this every time you open a new PowerShell terminal, as env vars are not persisted !!
+# First-time only (one-shot per machine):
+#   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+$env:SNOWFLAKE_ACCOUNT = "rwpojft-cu66477"
+$env:DBT_USER = "dbt"
+$env:PRIVATE_KEY_PASSPHRASE = "q"
+$env:PRIVATE_KEY = @"
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFNTBfBgkqhkiG9w0BBQ0wUjAxBgkqhkiG9w0BBQwwJAQQh287IJS0Y+hvyORyqclJ+QICCAAwDAYIKoZIhvcNAgkFADAdBglghkgBZQMEASoEELvzoIqrfkTzKH7h3rm7nKoEggTQmtUSRl/6UNQn02sesV/v7hP3h+cia65wR/mQlEI5GkWEeTz8Ef7KV7YYHCGYp65iu1SlBwaGXbR8NL9j+27b56Y0o1qp41BGbQ2dHLADQASugYubEC1fR2M6HsbIIJ+dm8+vpw1USPboBzPthZr7bE8MmLoIy90QpKaP5IQzOqiIgX9eDC28HrQMJKtoNDxjJDS5RTQXL2ACC+UKjO4xBIoVtn5DYrnvDp8stjGT5a2wc69lGvDfSydFS4IpujntcmCvfr9fbgSK8xUWiwiHL9iGQIWyHstAodYuSPaFZXrCdGSG/tQtwZOkaHfCg5tymy4OLn9mjH6XKop9m8K3au1JxB4ufdnCd9tyiwDnM6XUKpZUNm9qtjWZg02Hkm9mLJzRN7ZpP6wP/Z6lCA9ZOmHbCrh5peojn4qS3vi+aPFEyM5lH+9CNbnUyIUmfrMq/GHrGq4PfNM097U/mFElpVobaQzdwHYFL2VpsWLWb9F9LyO8uCgn4RpTxLlRWqqaTqMa+aantDoxpctUdFONo8EV1UMUCsD2nnwMcJVwyogBJaj3M9WIJpk6RVFFd3/gYAHkA9VQ2l32W0of/E+CbZawQe2+0h5dTzITHoVeJo8W0GQ/p5hAGAsA3Qn6hnxOfHHeARi22+EOkKxp35E87fCUmcF4vRGxv/5pep0bVZpK6HBC/WAeFlO29eT+FBpiPLDEjQ7JODE+YzeYWYbOjvSZ6EyyTiaYwcwVq2XwtfVDBB+3OjTCrtKGE8BD3pSFFdDMIIxmeFYgpuhLbrw8pUKd/kEtvPA0f+emmY0sWchiPplelwrQe0/ugsCYz38lhUCdpDxlqzxKoc//xCcFvRpxuA3EIgnWdPqhBKirjrsasSMqjXtJUye+zG/07IB2Fu8fEFfK3oRzlJWkRBmNa9jxNku0fd8kMp5KJtSHc4uNf6q/+2svH3pSy8oIF1Sj1hm0vCQQWgYRGLXgC+XUkEZnAPcc+A7RZIxHGf1+W/y1qwn6v+Lz7deYFEYC3vdgzveRmtty9ufyzLkwEktjZuV7BlBKJAMJTPqsicu7qoMgVH9w7erWk3VyNUQXRlMVe7iVLqsWJGXyiYd/ktS6452Brp3aNg0CJdknZKcxfWcmmgBwelX02jaqQH5eySLEza0XrJ4iMfAdRAZSkS7f9tDBvnH13dK2EoVLfeeqG8XDy0jABR7QWBe1isGCZTJ6UVeVBq/B59+vxGlrFJCtUFzfB4bEo8guCpw5q6acoZQybOXMtWrVi/VEimvqwvam29NA7hRw+PoiNF2PTGmAMv837f/SdH7u8xrhlqxYviptkBw9Lg8pEha6L01+v1nLTMp4cDUB9qcJ+maKpmg7+R+DxdLlEPWksm6gpdsjEZoqa/fzOIRZud90zr/erELl3TqmZ+O+BZAiByMXX+i6HVh23XM1q+mDnZe7VGmIaFZVHnCyJiUQYgHY4p+V99EaHfCYskmYqx4gYnYlMIwWxd1oIrtqc4E8UQT8Sk6VaKMSAwRqrwmHKo6rMf9pjLmu9cCtz20E4kOgp1OfZ8WFlSSoPds7KO7l4+cUiC2gcPsxTv7M0jAUCtNtxbMOBqp4n7FFgb9/Irg65RDWLX6iVBEtivutXAhxIFfm4J2lncs=
+-----END ENCRYPTED PRIVATE KEY-----
+"@

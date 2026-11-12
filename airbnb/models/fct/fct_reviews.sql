@@ -1,6 +1,8 @@
 {{config(
     materialized='incremental',
     incremental_strategy='microbatch',
+    begin='2009-06-20',
+    batch_size='year',
     on_schema_change='fail',
     event_time = 'review_date'
 )}}

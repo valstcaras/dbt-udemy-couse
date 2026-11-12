@@ -2,7 +2,7 @@ with l as (
     select * from {{ ref('dim_listings_cleansed') }}
 ), 
 h as (
-    select * from {{ ref('dim_hosts_cleansed') }}
+    select * from {{ ref('dim_hosts_cleansed', v=1) }}
 )
 
 select l.listing_id,
